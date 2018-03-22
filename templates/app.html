@@ -1,6 +1,31 @@
-<h1>App from Template url</h1>
 
-<div>Allow Edit: {{myCtrl.allowEdit}}</div>
-<div>Font Color: {{myCtrl.fontColor}}</div>
+<div class='headerBar'>
+    <edit-toggle
+        allow-edit='myCtrl.allowEdit'
+        update="myCtrl.toggleEdit(val)">
+    </edit-toggle>
+    <color-changer 
+        font-color="myCtrl.fontColor"
+        update="myCtrl.updateColor(val)"
+        allow-edit="myCtrl.allowEdit"
+        >
+    </color-changer>
+    <font-size
+        font-size="myCtrl.fontSize"
+        update="myCtrl.updateSize(size)">  
+    </font-size>
+    <font-family
+        font-family="myCtrl.fontFamily"
+        update="myCtrl.updateFamily(fam)">  
+    </font-family>
+</div>
+
+<div class="textArea">
+    <div class="textContainer">
+        <textarea ng-style="{color: myCtrl.fontColor, fontSize:myCtrl.fontSize, fontFamily: myCtrl.fontFamily}">
+            hello
+        </textarea>
+    </div>
+</div>
 
 <div>Component state: {{myCtrl}}</div>
